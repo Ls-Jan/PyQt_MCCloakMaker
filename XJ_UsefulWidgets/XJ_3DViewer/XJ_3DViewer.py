@@ -43,11 +43,9 @@ class XJ_3DViewer(QLabel):#只对立方体进行观察
             self.__clickPos=(x,y)
     def wheelEvent(self,event):
         scaling=self.camera.Canvas_Scaling
-        print(scaling)
         if(event.angleDelta().y()>0):#滚轮向上滚动，增加
             self.camera.Canvas_Scaling=scaling*1.15#+self.__wheelDelta
         else:#向下滚动，减少
-            print("DDD")
             if(scaling>self.__minScale):
                 self.camera.Canvas_Scaling=scaling*0.85#-self.__wheelDelta
         self.__UpdateCanvas()
