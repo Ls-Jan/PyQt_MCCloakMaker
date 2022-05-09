@@ -4,7 +4,7 @@ MC披风生成器
 
 运行效果图：
 
-<img src="https://github.com/Ls-Jan/PyQt_MCCloakMaker/blob/main/RunningDisplay%5BGIF%2CMP4%5D/0.gif"/>
+<img src="https://github.com/Ls-Jan/PyQt_MCCloakMaker/blob/main/RunningDisplay%5BPNG%2CGIF%2CMP4%5D/0.gif"/>
 
 </br>
 </br>
