@@ -20,7 +20,7 @@ MC披风生成器
 
 然后附上我同学几个月前写的网页版披风生成器，只不过因为他不怎么想搞界面所以就看上去不太行的亚子：<a href="https://lraty-li.github.io/Minecraft-Cape-Generator/">Minecraft Crap</a></br>
 不想下载exe的(只不过也不怎么建议下载就是了，毕竟做那么久就这玩意儿是有点丢人)，可以将就着用我同学的，他有心情的话估计会把界面做好。</br>
-想下载使用本生成器的就移步到<a href="https://github.com/Ls-Jan/PyQt_MCCloakMaker/tree/main/dist">  Ls-Jan/PyQt_MCCloakMaker/dist/  </a>把那100M+的压缩包下载然后解压，在里头找Main.exe文件运行一下就行了。
+想下载使用本生成器的请点击<a href="https://github.com/Ls-Jan/PyQt_MCCloakMaker/releases/download/v1.0.0/MC_CloakMaker.zip">  XJ_MCCloakMaker  </a>，把那100M+的压缩包下载然后解压，在里头找Main.exe文件运行一下就行了。
 
 </br>
 </br>
