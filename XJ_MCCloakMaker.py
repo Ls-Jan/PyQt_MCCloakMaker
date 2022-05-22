@@ -32,8 +32,9 @@ class XJ_MCCloakMaker(QWidget):
 
         cpDict={p[0]:XJ_Cropper(self,p[1],p[2]) for p in XJ_MCCloakMaker.__cropperMsg}
         viewer=XJ_3DViewer(self)
+        viewer.camera.Camera_RotationCenter=XJ_Point(5,0.5,8)
         cube=XJ_Cube(XJ_Point(0,0,0),XJ_Point(10,1,16))
-        resolution=XJ_LimitedVaule(self,"分辨率：")
+        resolution=XJ_LimitedValue(self,"分辨率：")
         pictSize=QPushButton("<点击刷新>",self)#获取图片大小
         cpGroup=XJ_CropperGroup(self,cpDict)
 

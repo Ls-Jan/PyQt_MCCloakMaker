@@ -1,3 +1,7 @@
+
+__version__='1.0.0'
+__author__='Ls_Jan'
+
 if(__package__):#如果是通过包导入该模块的话那么就用依赖导入
     from .XJ_Point import *
     from .XJ_Aspect import *
@@ -52,15 +56,23 @@ class XJ_Cube:#暂不打算实现立方体的旋转缩放移动操作，因为�
         
     def SetPict(self,aspect:XJ_Aspect,PICT):#设置对应面的图片，一般是cv2.imread读取出来的图象，数据类型是np.ndarray
         self.__picts[aspect]=PICT
-
     def GetPict(self,aspect:XJ_Aspect):#获取对应面的图片
         return self.__picts.setdefault(aspect,None)
 
-    def GetAnchorAndVector(self):#返回锚点以及三向量。
+    def SetAnchor(self,anchor):#设置锚点
+        self.__pos=anchor
+    def SetVectorX(self,x):#设置向量x
+        self.__vector['x']=x
+    def SetVectorY(self,y):#设置向量y
+        self.__vector['y']=y
+    def SetVectorZ(self,z):#设置向量z
+        self.__vector['z']=z
+    def GetAnchorAndVector(self):#返回锚点以及三向量
         #锚点为XJ_Point类型
         #三向量为dict，键分别为'x'、'y'、'z'，值为XJ_Point类型
         return self.__pos.copy(),self.__vector.copy()
-        
+    
+    
 if __name__=='__main__':
     cube=XJ_Cube(XJ_Point(0,0,0),XJ_Point(1,2,3))
     for i in XJ_Aspect:

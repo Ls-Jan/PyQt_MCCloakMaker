@@ -1,3 +1,7 @@
+
+__version__='1.0.0'
+__author__='Ls_Jan'
+
 import sys
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import Qt,QRect,QPoint,pyqtSignal
@@ -197,10 +201,7 @@ class XJ_SampleCropper(QWidget):#样例裁剪器，难以对其中的参数进�
 
             #画四条边界
             painter.setPen(QPen(QColor(*set_cpr.color_Border),set_cpr.thickness_Border))
-            painter.drawLine(L,T,R,T)#上边界
-            painter.drawLine(L,B,R,B)#下边界
-            painter.drawLine(L,T,L,B)#左边界
-            painter.drawLine(R,T,R,B)#右边界
+            painter.drawRect(L,T,R-L,B-T)
 
             #绘制阴影(分4块去绘制)
             painter.fillRect(QRect(QPoint(qRect.left(),qRect.top()),QPoint(R,T)),QColor(*set_cpr.color_Shadow))

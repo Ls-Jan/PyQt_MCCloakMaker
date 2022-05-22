@@ -59,7 +59,7 @@ class XJ_Cropper(QWidget):#附有“透明度条”、“自由裁剪复选框�
         clr.valueChanged.connect(self.__Click_Color)
         cp.valueChanged.connect(self.__CropChanged)
         slider.valueChanged.connect(self.__AlphaChanged)
-        clr.Set_Color((192,255,255))
+        clr.SetColor((192,255,255))
         slider.setMaximum(255)
         slider.setValue(255)
         slider.setPageStep(32)

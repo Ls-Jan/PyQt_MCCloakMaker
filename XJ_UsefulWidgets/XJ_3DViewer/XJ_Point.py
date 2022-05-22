@@ -1,3 +1,7 @@
+
+__version__='1.0.0'
+__author__='Ls_Jan'
+
 from math import sqrt
 
 class XJ_Point:

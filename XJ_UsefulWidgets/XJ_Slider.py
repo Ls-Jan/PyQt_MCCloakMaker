@@ -1,3 +1,7 @@
+
+__version__='1.0.0'
+__author__='Ls_Jan'
+
 import sys
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QApplication

@@ -1,3 +1,7 @@
+
+__version__='1.0.0'
+__author__='Ls_Jan'
+
 import sys
 from PyQt5.QtCore import Qt,pyqtSignal
 from PyQt5.QtGui import QColor
@@ -14,7 +18,7 @@ class XJ_ColorChoose(QPushButton):#小控件，点击弹出换色窗口。QWidge
         self.__SetColor()
 
     def __SetColor(self):
-        self.setStyleSheet("QPushButton{{background-color:rgb{0};}};".format(self.Get_Color()))#设置颜色
+        self.setStyleSheet("QPushButton{{background-color:rgb{0};}};".format(self.GetColor()))#设置颜色
         self.update()
         
     def mouseMoveEvent(self,event):
@@ -26,14 +30,14 @@ class XJ_ColorChoose(QPushButton):#小控件，点击弹出换色窗口。QWidge
             if(col.isValid()):
                 self.__color=col
                 self.__SetColor()
-                self.valueChanged.emit(self.Get_Color())#值修改时发送信号
+                self.valueChanged.emit(self.GetColor())#值修改时发送信号
                 
-    def Set_Color(self,color):#color为三元元组，如(255,128,64)
+    def SetColor(self,color):#color为三元元组，如(255,128,64)
         self.__color=QColor(*color)
         self.__SetColor()
-        self.valueChanged.emit(self.Get_Color())#值修改时发送信号
+        self.valueChanged.emit(self.GetColor())#值修改时发送信号
         
-    def Get_Color(self):#返回三元元组
+    def GetColor(self):#返回三元元组
         col=self.__color
         return (col.red(),col.green(),col.blue())
 
@@ -45,7 +49,7 @@ if __name__=='__main__':
 
     test=XJ_ColorChoose()
     test.show()
-    test.Set_Color((128,64,32))
+    test.SetColor((128,64,32))
     test.valueChanged.connect(lambda t:print(t))
     
     sys.exit(app.exec())

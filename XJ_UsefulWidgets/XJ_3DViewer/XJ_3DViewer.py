@@ -1,3 +1,7 @@
+
+__version__='1.0.0'
+__author__='Ls_Jan'
+
 if(__package__):#如果是通过包导入该模块的话那么就用依赖导入
     from .XJ_SampleCamera import *
 else:
@@ -13,7 +17,7 @@ from PyQt5.QtWidgets import QLabel,QApplication
 
 class XJ_3DViewer(QLabel):#只对立方体进行观察
     cameraMoved=pyqtSignal()#相机发生移动时(说白了就是拖拽屏幕)发送信号
-    def __init__(self,parent=None,center=XJ_Point(5,0.5,8)):
+    def __init__(self,parent=None,center=XJ_Point(0,0,0)):
         super(XJ_3DViewer,self).__init__(parent)
         self.camera=XJ_SampleCamera(center)#懒得保护它了，直接暴露出来
 
@@ -106,6 +110,7 @@ if __name__ == '__main__':
     viewer.camera.Canvas_Scaling=20
 #    viewer.camera.Rendering_MaxDist=200
     viewer.camera.Canvas_Center=(50,50)
+    viewer.camera.Camera_RotationCenter=XJ_Point(5,0.5,8)
     viewer.resize(1000,600)
     viewer.show()
 
@@ -117,6 +122,7 @@ if __name__ == '__main__':
     cube.SetPict(XJ_Aspect.Bottom,cv2.imread("Cube.png",cv2.IMREAD_UNCHANGED))
     cube.SetPict(XJ_Aspect.Front,cv2.imread("Cube.png",cv2.IMREAD_UNCHANGED))
     cube.SetPict(XJ_Aspect.Front,cv2.imread("Utsuho.png",cv2.IMREAD_UNCHANGED))
+#    cube.SetVectorX(XJ_Point(30,-20,-20))
     viewer.AddCube(cube)
 
     subCube=XJ_Cube(XJ_Point(10,10,0),XJ_Point(16,16,16))
@@ -126,20 +132,9 @@ if __name__ == '__main__':
     subCube.SetPict(XJ_Aspect.Right,cv2.imread("Cube.png",cv2.IMREAD_UNCHANGED))
     subCube.SetPict(XJ_Aspect.Top,cv2.imread("Cube.png",cv2.IMREAD_UNCHANGED))
     subCube.SetPict(XJ_Aspect.Bottom,cv2.imread("Utsuho.png",cv2.IMREAD_UNCHANGED))
-    print(cv2.imread("Utsuho.png",cv2.IMREAD_UNCHANGED))
     viewer.AddCube(subCube)
 
-  #  bigCube=XJ_Cube(XJ_Point(-1000,-1000,-500),XJ_Point(2000,2000,1000))
-  #  bigCube.SetPict(XJ_Aspect.Front,cv2.imread("BBB.png",cv2.IMREAD_UNCHANGED))
-  #  bigCube.SetPict(XJ_Aspect.Back,cv2.imread("BBB.png",cv2.IMREAD_UNCHANGED))
-  #  bigCube.SetPict(XJ_Aspect.Left,cv2.imread("BBB.png",cv2.IMREAD_UNCHANGED))
-  #  bigCube.SetPict(XJ_Aspect.Right,cv2.imread("BBB.png",cv2.IMREAD_UNCHANGED))
-  #  bigCube.SetPict(XJ_Aspect.Top,cv2.imread("BBB.png",cv2.IMREAD_UNCHANGED))
-  #  bigCube.SetPict(XJ_Aspect.Bottom,cv2.imread("BBB.png",cv2.IMREAD_UNCHANGED))
-  #  viewer.AddCube(bigCube)
-
     viewer.cameraMoved.connect(lambda:print(viewer.GetNearestAspects(cube)))
-#    viewer.cameraMoved.connect(lambda:cube.SetPict(XJ_Aspect.Front,cv2.imread("Cube.png",cv2.IMREAD_UNCHANGED)) or viewer.UpdateCubes())
 
     sys.exit(app.exec())
 
